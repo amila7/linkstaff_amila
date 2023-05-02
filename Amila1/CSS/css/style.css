@@ -1,0 +1,73 @@
+h2{
+text-transform:uppercase;
+line-height:1.6em ;
+
+}
+
+body{
+    background-color:aquamarine;
+    color: #000000;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size:  16px; ;
+    font-weight: 700;
+
+    line-height: 1.6em;
+    margin:0;
+}
+
+
+.box-a{
+    background-color: #000000;
+    color: blueviolet;
+    /*border*/
+    border-top: 5px green solid;
+    border-bottom:5px green solid;
+    border-right:5px green solid;
+    border-left:5px green solid;
+
+
+
+}
+
+.container{
+
+    width:500px ;
+    margin: auto;
+}
+
+.box-a h2{
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif ;
+    font: weight 700;
+}
+
+.box-b{
+    border: 2px #000000 dashed;
+    padding:20px ;
+    margin:20px 0px;
+}
+
+/*list*/
+.categories{
+    border: 2px solid rgb(0, 0,0);
+    margin-bottom: 30px;
+}
+
+/*form*/
+
+.frm{
+    padding: 20px;
+
+}
+
+.frm.form-group{
+
+    padding-top: 15px;
+}
+
+.frm label{
+    display: block;
+}
+.frm input{
+    padding:8px ;
+    width: 100%;
+}
