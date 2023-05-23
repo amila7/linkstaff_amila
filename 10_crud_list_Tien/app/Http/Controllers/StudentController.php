@@ -20,28 +20,14 @@ class StudentController extends Controller
         $request->session()->put('inserttype', $request->input('type'));
         if ($type) {
             if ($type == 'phone') {
-                $request->session()->put('insertvalue', $request->input('value'));
+                // $request->session()->put('insertvalue', $request->input('value'));
 
                 $student = DB::table('students')
                 ->where(function ($query) use ($value) {
-                    $query->where('phone', 'like', '%' . str_replace('-', '%', $value) . '%')
+                    $query->where('phone', 'like', '%' . $value . '%')
                           ->orWhereRaw("REPLACE(phone, '-', '') like '%" . str_replace('-', '', $value) . "%'");
                 })
                 ->get();
-
-            //    $student = DB::table('students')
-            //     ->where(function ($query) use ($value) {
-            //         if(strpos($value, '-') !== false) {
-            //             // Nếu có dấu "-" trong chuỗi, thực hiện tìm kiếm theo đúng vị trí dấu "-"
-            //             $query->where('phone', 'like', '%' . $value . '%');
-            //         } else {
-            //             // Nếu không có dấu "-", thực hiện tìm kiếm theo chuỗi chữ số
-            //             $query->where('phone', 'like', '%' . $value . '%')
-            //                   ->orWhereRaw("REPLACE(phone, '-', '') like '%" . $value . "%'");
-            //         }
-            //     })
-            //     ->get();
-
 
                 if ($student->count() < 0) {
                     return back()->withInput()->with( 'type',$type)->with('thongbao2', '検索値が見つかりません.');
@@ -79,8 +65,8 @@ class StudentController extends Controller
             }
         } else {
             $request->session()->put('insertvalue', $request->input('value'));
-            $student = Student::paginate(5);
-            $student->withPath(route('student.index') . '?page=' . session()->get('student_page', 1));
+            $student = Student::paginate(2);
+            $student->withPath(route('student.index') . '?page=' . session()->get('student_page', 2));
             return view('index.index', compact('student', 'type', ['skills']))->with('i', (session()->get('student_page', 1) - 1) * 5);
         }
     }

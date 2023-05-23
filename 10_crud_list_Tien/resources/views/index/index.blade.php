@@ -42,7 +42,7 @@
                                         <div>
                                             <strong></strong>
                                             <br>
-                                            <input class="form-control" type="text" name="value" 
+                                            <input class="form-control" type="text" name="value"
                                                 placeholder="入力してください。" value="">
                                         </div>
                                         <br>
@@ -147,10 +147,11 @@
 
                             </tr>
                         @endforeach
-    
+
                     </tbody>
                 </table>
-                
+                {{ $student->links() }}
+
             </div>
         </div>
     </div>
@@ -159,7 +160,7 @@
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
 
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>   
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
     <script>
         new MultiSelectTag('skill_se');
@@ -203,7 +204,7 @@
             $("#seachSkills").change(function() {
                 if ($(this).val() === "skill_se") {
                     $("#skill_se_info").show();
-    
+
                     $.ajax({
                         url: '/skills',
                         type: 'GET',
@@ -222,5 +223,5 @@
             });
         });
     </script> --}}
-    
+
 @endsection
